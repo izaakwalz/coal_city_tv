@@ -1,0 +1,115 @@
+<nav class="flex flex-col bg-gray-200 dark:bg-gray-900 w-64 px-12 pt-4 pb-6">
+    <!-- SideNavBar -->
+
+    <div class="flex flex-row border-b items-center justify-between pb-2">
+        <!-- Hearder -->
+        <span class="text-lg font-semibold text-pink-500 capitalize">
+            Coal City <span class="text-gray-700">TV</span>
+        </span>
+    </div>
+
+    <div class="mt-6">
+        <!-- User info -->
+        {{!-- <img class="h-12 w-12 rounded-full object-cover" src="img/user.png" alt="enoshima profile" /> --}}
+        <h2 class="mt-4 text-xl dark:text-gray-300 font-extrabold capitalize">
+            {{username}}
+        </h2>
+        <span class="text-sm dark:text-gray-300">
+            Admin
+            <span class="font-semibold text-pink-500 dark:text-green-300">
+                ID:
+            </span>
+            {{ID}}
+        </span>
+    </div>
+
+    <a href="/admin/posts/add" class="mt-8 flex items-center justify-between py-3 font-extrabold capitalize px-5 text-gray-700
+			dark:text-gray-200 bg-pink-300 dark:bg-green-500 rounded-lg shadow">
+        <!-- Action -->
+        <span class="ml-1">Add Post</span>
+        <i class="h-5 w-5 fill-current text-gray-700 mr-1 fas fa-broadcast-tower"></i>
+        {{!-- <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+            </svg> --}}
+    </a>
+
+    <ul class="mt-2 text-gray-600">
+        <!-- Links -->
+        <li class="mt-8 shadow py-2 bg-white dark:bg-gray-200 rounded-lg
+				-ml-4">
+            <a href="/admin/dashboard" class="flex pl-4  hover:text-pink-400">
+                <svg class="fill-current h-5 w-5 dark:text-gray-300" viewBox="0 0 24 24">
+                    <path d="M16 20h4v-4h-4m0-2h4v-4h-4m-6-2h4V4h-4m6
+							4h4V4h-4m-6 10h4v-4h-4m-6 4h4v-4H4m0 10h4v-4H4m6
+							4h4v-4h-4M4 8h4V4H4v4z"></path>
+                </svg>
+                <span class="ml-2 capitalize font-semibold text-black
+						dark:text-gray-300">
+                    dashboard
+                </span>
+            </a>
+        </li>
+
+        <li class="mt-8">
+            <a href="/admin/posts" class="flex  hover:text-pink-400">
+                <i class="fill-current h-5 w-5 dark:text-gray-300 fas fa-broadcast-tower"></i>
+                <span class="ml-2 capitalize font-semibold text-black
+						dark:text-gray-300">
+                    post
+                </span>
+            </a>
+        </li>
+
+        <li class="mt-8">
+            <a href="/admin/category" class="flex  hover:text-pink-400">
+                <i class="fill-current h-5 w-5 dark:text-gray-300 fas fa-braille"></i>
+                <span class="ml-2 capitalize font-semibold  text-black
+						dark:text-gray-300">
+                    category
+                </span>
+            </a>
+        </li>
+
+        <li class="mt-8">
+            <a href="/admin/images" class="flex hover:text-pink-400">
+                <i class="fill-current h-5 w-5 dark:text-gray-300 fas fa-upload"></i>
+                <span class="ml-2 capitalize font-semibold text-gray-900">
+                    images
+                </span>
+            </a>
+        </li>
+
+        <li class="mt-8">
+            <a href="/admin/user/add" class="flex active:bg-pink-600 hover:text-pink-400">
+                <i class="fill-current h-5 w-5 mb-0 dark:text-gray-300 fas fa-user-plus"></i>
+                <span class="ml-3 capitalize  font-medium text-gray-900">
+                    add user
+                </span>
+            </a>
+        </li>
+
+        <li class="mt-8">
+            <a href="/admin/user" class="flex active:bg-pink-600 hover:text-pink-400">
+                <i class="fill-current h-5 w-5 mb-0 dark:text-gray-300 fas fa-user-circle fa-lg"></i>
+                <span class="ml-4 uppercase font-serif text-gray-900">
+                    Profile
+                </span>
+            </a>
+        </li>
+
+
+    </ul>
+
+    <div class="mt-auto flex items-center text-red-700 dark:text-red-400">
+        <!-- important action -->
+        <a href="/admin/logout" class="flex items-center">
+            <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+                <path d="M16 17v-3H9v-4h7V7l5 5-5 5M14 2a2 2 0 012
+						2v2h-2V4H5v16h9v-2h2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2
+						0 012-2h9z"></path>
+            </svg>
+            <span class="ml-2 capitalize font-medium">log out</span>
+        </a>
+
+    </div>
+</nav>

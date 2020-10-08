@@ -1,0 +1,81 @@
+<div class="mx-10 my-2">
+    <nav class="flex flex-row justify-between border-b
+				dark:border-gray-600 dark:text-gray-400 transition duration-500
+				ease-in-out">
+        <div class="flex">
+            <!-- Top NavBar -->
+
+            <a href="/admin/dashboard" class="py-2 block text-pink-500 border-pink-500
+						dark:text-green-200 dark:border-green-200
+						focus:outline-none border-b-2 font-medium capitalize
+						transition duration-500 ease-in-out">
+                Dashboard
+            </a>
+        </div>
+
+        <div class="flex items-center select-none">
+            <span class="hover:text-pink-500 font-bold dark-hover:text-pink-300
+						cursor-pointer mr-3 transition duration-500 ease-in-out">
+                <h3>{{username}}</h3>
+            </span>
+        </div>
+
+    </nav>
+    <h2 class="my-4 text-4xl font-semibold dark:text-gray-400">
+        Dashboard
+    </h2>
+    <div class="mx-64 mt-2 mb-5">
+        {{> errors/message }}
+    </div>
+
+    <div class="pb-2 flex items-center justify-between text-gray-600
+				dark:text-gray-400 border-b dark:border-gray-600">
+        <!-- Header -->
+
+        <div>
+            <span>
+                <span class="text-green-500 dark:text-green-200">
+                    posts:
+                </span>
+                22,
+            </span>
+            <span>
+                <span class="text-green-500 dark:text-green-200">
+                    categories:
+                </span>
+                10,
+            </span>
+            <span>
+                <span class="text-green-500 dark:text-green-200">
+                    comments:
+                </span>
+                433
+            </span>
+        </div>
+    </div>
+
+    <div class="flex w-full">
+        <div class="flex-1 m-5 relative rounded bg-gray-200 shadow">
+            <div
+                class="bg-green-500 pl-10 pr-10 pt-8 pb-8 ml-3 absolute top-0 -mt-4 -mr-4 rounded text-white fill-current shadow">
+                <i class="fas fa-envelope inline-block w-5"></i>
+            </div>
+
+            <div class="float-right top-0 right-0 m-3">
+                <div class="text-right text-sm">Emails</div>
+                <div class="text-right text-3xl">25</div>
+            </div>
+        </div>
+
+        <div class="flex-1 m-5 relative rounded bg-gray-200 shadow">
+            <div
+                class="bg-red-500 pl-10 pr-10 pt-8 pb-8 ml-3 absolute top-0 -mt-4 -mr-4 rounded text-white fill-current shadow">
+                <i class="fas fa-envelope inline-block w-5"></i>
+            </div>
+
+            <div class="float-right top-0 right-0 m-3">
+                <div class="text-right text-sm">Flagged</div>
+                <div class="text-right text-3xl">10</div>
+            </div>
+        </div>
+    </div </div>

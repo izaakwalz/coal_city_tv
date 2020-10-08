@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="shortcut icon" href="/img/ico.ico" />
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" />
+    <title>Login | Coal City Tv Admin </title>
+</head>
+
+<body class="text-gray-800 antialiased">
+    <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+            <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+                <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white"
+                    href="/"><span class="text-pink-500">Coal City </span>Tv</a>
+
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="absolute w-full h-full">
+            <div class="absolute top-0 w-full h-full bg-gray-900"
+                style="background-image: url(/img/register_bg_2.png); background-size: 100%; background-repeat: no-repeat;">
+            </div>
+            {{{body}}}
+            <footer class="absolute w-full bottom-0 bg-gray-900 pb-6">
+                <div class="container mx-auto px-4">
+                    <hr class="mb-6 border-b-1 border-gray-700" />
+                    <div class="flex flex-wrap items-center md:justify-between justify-center">
+                        <div class="w-full md:w-4/12 px-4">
+                            <div class="text-sm text-white font-semibold py-1">
+                                Copyright © <span id="date"></span>
+                                <a href="/contactus"
+                                    class="text-white hover:text-pink-400 text-sm font-semibold py-1">Coal City TV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </main>
+    <script>
+        const date = document.getElementById('date')
+        const now = new Date().getFullYear();
+        date.innerHTML = now
+    </script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <script>
+        $(".closealertbutton").click(function (e) {
+            // $('.alertbox')[0].hide()
+            // e.preventDefault();
+            pid = $(this).parent().parent().hide(500)
+            console.log(pid)
+            // $(".alertbox", this).hide()
+        })
+    </script>
+</body>
+
+</html>

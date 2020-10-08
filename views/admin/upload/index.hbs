@@ -1,0 +1,147 @@
+<div class="mx-10 my-2">
+    <nav class="flex flex-row justify-between border-b
+				dark:border-gray-600 dark:text-gray-400 transition duration-500
+				ease-in-out">
+        <div class="flex">
+            <!-- Top NavBar -->
+
+            <a href="/admin/images" class="py-2 block text-pink-500 border-pink-500
+						dark:text-green-200 dark:border-green-200
+						focus:outline-none border-b-2 font-medium capitalize
+						transition duration-500 ease-in-out">
+                upload
+            </a>
+        </div>
+
+        <div class="flex items-center select-none">
+            <span class="hover:text-pink-500 font-bold dark-hover:text-pink-300
+						cursor-pointer mr-3 transition duration-500 ease-in-out">
+                <h3>{{username}}</h3>
+            </span>
+        </div>
+
+    </nav>
+    <h2 class="my-4 text-4xl font-serif dark:text-gray-400">
+        Upload
+    </h2>
+
+    <div class="flex flex-wrap -mx-4">
+        <div class="w-full mb-6 lg:mb-0 lg:w-1/2 px-4">
+
+            <div class="bg-gray-200  pt-2 font-medium rounded my-16">
+                <div class="container mx-auto">
+                    <div class="inputs w-full max-w-2xl p-6 mx-auto">
+                        {{> errors/message }}
+
+                        <form action="/admin/images" method="POST" class="mt-6" enctype="multipart/form-data"
+                            autocomplete="off">
+                            <div class='flex flex-wrap -mx-3 mb-6'>
+                                <div class='w-full md:w-full px-3 mb-6'>
+                                    <label
+                                        class='block uppercase tracking-wide text-gray-700 text-xs font-semibold mb-2'
+                                        for='title'>e.g JPG,PNG,JPEG,GIF</label>
+                                </div>
+                                <div class='w-full md:w-full px-3 mb-6'>
+                                    <label
+                                        class='block uppercase tracking-wide text-gray-700 text-xs font-semibold mb-2'
+                                        for='name'>name , (please image name must be unique)</label>
+                                    <input
+                                        class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                        type='text' id='name' name="name" placeholder="image name">
+                                </div>
+                                <div class="flex w-full md:w-full px-3 mb-6' items-center justify-center">
+                                    <label
+                                        class="w-64 flex flex-col items-center px-4 py-6 bg-pink-300 text-gray-700 rounded-lg shadow-sm tracking-wide uppercase  cursor-pointer hover:bg-gray-700 hover:text-pink-300">
+                                        <i class="w-8 h-8 fas fa-cloud-upload-alt fa-2x"></i>
+                                        <span class="mt-2 text-base leading-normal">Upload an image</span>
+                                        <input type='file' id='' name="mFile" class="hidden"
+                                            accept="image/jpeg, image/png, image/jpg" />
+                                    </label>
+                                </div>
+                                <div class="flex w-full md:w-full items-center justify-center">
+                                    <button
+                                        class="appearance-none bg-gray-700  text-pink-300 px-12 py-2 shadow-sm border border-gray-400 hover:bg-pink-300 hover:text-gray-800 rounded-md mt-5"
+                                        type="submit">upload</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4">
+            <div class="container mx-auto px-4 sm:px-8">
+                <div class="py-8">
+
+                    <div>
+                        <h6 class=" text-base font-mono leading-tight">image: {{count}}</h6>
+                    </div>
+                    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                            <table class="min-w-full leading-normal">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-600 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            name
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-600 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            date
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-600 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each images}}
+                                    <tr>
+                                        <td class="px-2 py-2 border-b  border-r border-gray-300 bg-white text-sm">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 w-10 h-10">
+                                                    <img class="w-full h-full rounded border-2 border-gray-700 p-1"
+                                                        src="{{photo}}" alt="" />
+                                                </div>
+                                                <div class="ml-3">
+                                                    <p class="text-gray-900 whitespace-no-wrap">
+                                                        {{name}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  py-2 border-b  border-r border-gray-300 bg-white text-sm">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                {{formatDate createdAt 'MM / DD / YYYY'}}
+                                            </p>
+                                        </td>
+                                        <td
+                                            class="px-2  py-2 border-b text-center border-r border-gray-300 bg-white text-sm">
+                                            <div class="inline-flex mt-2 xs:mt-0">
+                                                <form action="/admin/images/delete/{{_id}}" method="POST"
+                                                    id="delete-form">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit"
+                                                        class="text-sm bg-red-600 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded">
+                                                        <i class="fas fa-trash-alt fa-small"></i>
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    {{else}}
+                                    <p>No Image to display, Upload an Image</p>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

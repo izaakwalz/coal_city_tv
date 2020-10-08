@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/ico.ico" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" />
+    <title>Coal City Tv | Dashboard</title>
+</head>
+
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <div class="h-screen w-full flex overflow-hidden">
+        {{> admin/sidenav }}
+
+        <main class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-700 transition
+		duration-500 ease-in-out overflow-y-auto">
+            {{{body}}}
+            <div>
+                {{> admin/footer }}
+
+            </div>
+        </main>
+    </div>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+
+    <script>
+        CKEDITOR.replace('content')
+        CKEDITOR.replace('bio')
+    </script>
+
+    <script>
+        $(".closealertbutton").click(function (e) {
+            // $('.alertbox')[0].hide()
+            // e.preventDefault();
+            pid = $(this).parent().parent().hide(500)
+            console.log(pid)
+            // $(".alertbox", this).hide()
+        })
+    </script>
+
+</body>
+
+</html>

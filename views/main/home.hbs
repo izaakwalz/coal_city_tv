@@ -1,0 +1,240 @@
+<main class="mt-4">
+    <!-- featured section -->
+    <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-16">
+        <!-- main post -->
+        <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
+            <img src="{{post.image.photo}}" alt="{{image.name}}" class="rounded-md object-cover w-full h-64" />
+            <span class="text-gray-700 text-sm hidden md:block mt-4"> {{post.category.name}} </span>
+            <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
+                {{post.title}}
+            </h1>
+            <p class="text-gray-600 mb-4">
+                {{stripTags (truncate post.content 250)}}
+            </p>
+            <a href="/posts/{{post.link}}" class="inline-block px-6 py-3 mt-2 rounded-md bg-gray-700 text-pink-300">
+                Read more
+            </a>
+        </div>
+
+        <!-- sub-main posts -->
+        <div class="w-full md:w-4/7">
+            <!-- post 1 -->
+            {{#each posts}}
+            <div class=" mx-5 w-ful lg:flex">
+                <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+                    style="background-image: url('{{image.photo}}')" title="Woman holding a mug">
+                </div>
+                <div
+                    class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <div class="mb-8">
+                        <p class="text-sm text-purple-700 text-grey-dark flex items-center">
+                            {{category.name}}
+                        </p>
+                        <div class="text-black font-bold text-xl mb-2"><a href="/posts/{{link}}">{{title}}</a></div>
+                        <p class="text-grey-darker lg:hidden text-base">Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit.
+                            Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <!-- end featured section -->
+
+    <div class="block lg:flex lg:space-x-2 px-2 lg:p-0 mt-10 mb-10">
+        {{!-- banner --}}
+        <div class="w-full lg:w-2/3">
+            <a href="/posts/{{trend.link}}" class="mb-4 md:mb-0 w-full  relative rounded inline-block"
+                style="height: 24em;" href="/{{trend.title}}">
+                <div class="absolute left-0 bottom-0 w-full h-full z-10"
+                    style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
+                <img src="{{trend.image.photo}}" class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover" />
+                <div class="p-4 absolute bottom-0 left-0 z-20">
+                    <span
+                        class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{trend.category.name}}</span>
+                    <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
+                        {{trend.title}}
+                    </h2>
+                    <div class="flex mt-3">
+                        {{!-- <img src="img/post1.jpg" class="h-10 w-10 rounded-full mr-2 object-cover" /> --}}
+                        <div>
+                            {{!-- <p class="font-semibold text-gray-200 text-sm"> Mike Sullivan </p> --}}
+                            <p class="font-semibold text-gray-400 text-xs">
+                                {{formatDate createdAt 'DD MMM YYYY'}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{!-- categories --}}
+        <div class="w-full lg:w-1/3 px-3">
+            <!-- topics -->
+            <div class="mb-4">
+                <h5 class="font-bold text-lg uppercase text-gray-700 px-1 mb-2"> Categories </h5>
+                <ul>
+                    {{#each categories}}
+                    <li class="px-1 py-4 border-b border-t border-white hover:border-gray-200 transition duration-300">
+                        <a href="/category?name={{_id}}" class="flex items-center text-gray-700 cursor-pointer">
+                            <span class="inline-block h-4 w-4 bg-purple-700 mr-3"></span>
+                            {{name}}
+                            {{!-- <span class="text-gray-700 ml-auto">23 articles</span> --}}
+                            <i class='text-gray-500 bx bx-right-arrow-alt ml-1'></i>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- recent posts -->
+    <div class="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
+        <h2 class="font-bold text-3xl">Latest news</h2>
+        <a href="/posts" class="bg-gray-700 hover:bg-gray-800 text-pink-200 px-3 py-1 rounded cursor-pointer">
+            View all
+        </a>
+    </div>
+
+    <section class="flex flex-row flex-wrap mx-auto">
+        <!-- Card Component -->
+        {{#each recent}}
+
+        <div class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3">
+            <div
+                class="flex flex-col bg-pink-200 items-stretch min-h-full pb-4 mb-6 transition-all duration-150 rounded-lg shadow-lg">
+                <div class="bg-pink-300 h-56 w-full rounded-lg rounded-b-none shadow-md bg-cover bg-center"
+                    style="background-image: url({{image.photo}})">
+                </div>
+
+                <hr class="border-pink-200" />
+                <hr class="border-pink-200" />
+                <div class="flex flex-wrap flex-1 px-4 py-1 t mx-auto">
+                    <h2 class="font-bold text-2xl text-gray-800">{{title}}
+                    </h2>
+                    <p class="text-gray-700 mt-2">
+                        {{stripTags (truncate content 100)}}
+                    </p>
+                    <div class="flex items-center justify-between px-2 py-2 overflow-hidden">
+                        <span class="text-xs text-gray-800 uppercase">
+                            {{category.name}}
+                        </span>
+                    </div>
+                </div>
+                <section class="px-4 py-2">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center flex-1">
+                            {{!-- <img class="object-cover h-10 rounded-full" src="/img/team.jpg" alt="Avatar" /> --}}
+                            <div class="flex flex-col mx-2">
+                                {{!-- <a href="" class="font-semibold text-gray-700 hover:underline">
+                                Fajrian Aidil Pratama
+                            </a> --}}
+                                <span class="mx-1 text-xs text-gray-600">
+                                    {{formatDate createdAt 'DD MMM YYYY'}}
+                                </span>
+                            </div>
+                        </div>
+                        <a href="/posts/{{link}}" class="mt-1 text-xs bg-gray-800 p-2 rounded-md text-pink-300">Read
+                            more</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+
+
+
+    {{!-- <!-- subscribe -->
+    <div class="rounded flex md:shadow mt-12">
+        <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+            class="w-0 md:w-1/4 object-cover rounded-l" />
+        <div class="px-4 py-2">
+            <h3 class="text-3xl text-gray-800 font-bold">Subscribe to newsletter</h3>
+            <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the
+                oven</p>
+            <form class="mt-4 mb-10">
+                <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400"
+                    placeholder="john@tech.com" />
+                <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
+                    Subscribe
+                    <i class='bx bx-right-arrow-alt'></i>
+                </button>
+                <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
+            </form>
+        </div>
+    </div> --}}
+    <!-- ens subscribe section -->
+
+
+    <!-- popular posts -->
+    <div class="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
+        <h2 class="font-bold text-3xl">Popular news</h2>
+        <a href="/posts" class="bg-gray-700 hover:bg-gray-800 text-pink-200 px-3 py-1 rounded cursor-pointer">
+            View all
+        </a>
+    </div>
+    <section class="blog text-gray-700 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            {{!-- 
+            <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Blog</h1>
+                <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                    J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en
+                    place
+                    un blog personnel.
+                    Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes
+                    développeurs pour mieux s'en sortir. </p>
+            </div> --}}
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                {{#each popular}}
+                <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-md max mx-auto">
+                    {{!-- <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center"
+                    style="background-image: url(/img/post2.jpg)">
+                </div> --}}
+                    <div class=" w-70 bg-pink-200 -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+
+                        <div class="header-content inline-flex ">
+                            <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                                <div class="h-2 w-2 rounded-full m-1 bg-gray-700 "></div>
+                            </div>
+                            <div class="category-title flex-1 text-sm">{{category.name}}</div>
+                        </div>
+                        <div class="p-4 pl-2">
+                            <h2 class="font-bold text-2xl text-gray-800">{{title}}</h2>
+                        </div>
+
+                        <div class="summary-post text-base text-justify">
+                            {{stripTags (truncate content 100)}}
+                        </div>
+                        <section class="px-4 py-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center flex-1">
+                                    {{!-- <img class="object-cover h-10 rounded-full" src="/img/team.jpg" alt="Avatar" /> --}}
+                                    <div class="flex flex-col mx-2">
+                                        {{!-- <a href="" class="font-semibold text-gray-700 hover:underline">
+                                Fajrian Aidil Pratama
+                            </a> --}}
+                                        <span class="mx-1 text-xs font-semibold text-gray-600">
+                                            {{formatDate createdAt 'DD MMM YYYY'}}
+                                            {{!-- {{formatDate createdAt 'DD MMM YYYY, h:mm a'}} --}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <a href="/posts/{{link}}"
+                                    class="mt-1 text-xs bg-gray-800 p-2 rounded-md text-pink-300">Read
+                                    more</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</main>

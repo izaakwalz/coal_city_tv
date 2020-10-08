@@ -1,0 +1,86 @@
+<div class="mx-10 my-2">
+    <nav class="flex flex-row justify-between border-b
+				dark:border-gray-600 dark:text-gray-400 transition duration-500
+				ease-in-out">
+        <div class="flex">
+            <!-- Top NavBar -->
+            <a href="/admin/user" class="py-2 block text-pink-400 border-pink-400
+						dark:text-green-200 dark:border-green-200
+						focus:outline-none border-b-2 font-medium capitalize
+						transition duration-500 ease-in-out">
+                Account
+            </a>
+        </div>
+
+        <div class="flex items-center select-none">
+            <span class="hover:text-pink-400 font-bold dark-hover:text-pink-300
+						cursor-pointer mr-3 transition duration-500 ease-in-out">
+                <h3>{{username}}</h3>
+            </span>
+        </div>
+
+    </nav>
+    <h2 class="my-4 text-4xl font-semibold dark:text-gray-400">
+        Create Account
+    </h2>
+
+    <div class="container mx-auto">
+        <div class="inputs w-full max-w-2xl p-6 mx-auto">
+            {{> errors/message }}
+
+            {{!-- <h2 class="text-2xl text-gray-900">Create Account</h2> --}}
+            <form action="/admin/user/add" method="POST" class="mt-6 border-t border-gray-400 pt-4" autocomplete="off">
+                <div class='flex flex-wrap -mx-3 mb-6'>
+                    <div class='w-full md:w-full px-3 mb-6'>
+                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+                            for='grid-text-1'>email address</label>
+                        <input
+                            class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                            id='grid-text-1' type="email" id="email" name="email" placeholder='Enter email'>
+                    </div>
+                    <div class="flex w-full md:w-full items-center justify-between mt-4">
+                        <div class='w-full md:w-1/2 px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>password
+                            </label>
+                            <input
+                                class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                type="password" id="password" name="password">
+                        </div>
+                        <div class='w-full md:w-1/2 px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>confirm
+                                password
+                            </label>
+                            <input
+                                class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                type='password' id="password2" name="password2">
+                        </div>
+                    </div>
+                    <div class="personal w-full border-t border-gray-400 pt-4">
+                        <h2 class="text-2xl text-gray-900">Personal info:</h2>
+                        <div class="flex items-center justify-between mt-4">
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>first
+                                    name</label>
+                                <input
+                                    class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                    type='text' id="firstName" name="firstName">
+                            </div>
+                            <div class='w-full md:w-1/2 px-3 mb-6'>
+                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>last
+                                    name</label>
+                                <input
+                                    class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                    type='text' id="lastName" name="lastName">
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <button
+                                class="appearance-none bg-pink-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3"
+                                type="submit">save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

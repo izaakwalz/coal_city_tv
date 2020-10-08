@@ -1,0 +1,48 @@
+<section class="flex flex-row flex-wrap mx-auto">
+    <!-- Card Component -->
+    {{#each posts}}
+
+    <div class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3">
+        <div
+            class="flex flex-col bg-pink-200 items-stretch min-h-full pb-4 mb-6 transition-all duration-150 rounded-lg shadow-lg">
+            <div class="bg-pink-300 h-56 w-full rounded-lg rounded-b-none shadow-md bg-cover bg-center"
+                style="background-image: url({{image.photo}})">
+            </div>
+
+            <hr class="border-pink-200" />
+            <hr class="border-pink-200" />
+            <div class="flex flex-wrap flex-1 px-4 py-1 t mx-auto">
+                <h2 class="font-bold text-2xl text-gray-800">{{title}}
+                </h2>
+                <p class="text-gray-700 mt-2">
+                    {{stripTags (truncate content 100)}}
+                </p>
+                <div class="flex items-center justify-between px-2 py-2 overflow-hidden">
+                    <span class="text-xs text-gray-800 uppercase">
+                        {{category.name}}
+                    </span>
+                </div>
+            </div>
+            <section class="px-4 py-2">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center flex-1">
+                        {{!-- <img class="object-cover h-10 rounded-full" src="/img/team.jpg" alt="Avatar" /> --}}
+                        <div class="flex flex-col mx-2">
+                            {{!-- <a href="" class="font-semibold text-gray-700 hover:underline">
+                                Fajrian Aidil Pratama
+                            </a> --}}
+                            <span class="mx-1 text-xs text-gray-600">
+                                {{formatDate createdAt 'DD MMM YYYY'}}
+                            </span>
+                        </div>
+                    </div>
+                    <a href="/posts/{{link}}" class="mt-1 text-xs bg-gray-800 p-2 rounded-md text-pink-300">Read
+                        more</a>
+                </div>
+            </section>
+        </div>
+    </div>
+    {{else}}
+    <p>No posts to display</p>
+    {{/each}}
+</section>
