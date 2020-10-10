@@ -57,16 +57,18 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/posts', async (req, res) => {
+router.get('/blog', async (req, res) => {
   try {
     const posts = await Post.find({ status: 'public' })
       .sort({ createdAt: 'desc' })
       .populate('image')
       .populate('category')
       .lean();
+    const category = await Category.find().lean();
     res.render('main/posts', {
       layout: 'main',
       posts: posts,
+      categories: category,
     });
   } catch (err) {
     console.error(err);
@@ -76,7 +78,7 @@ router.get('/posts', async (req, res) => {
   }
 });
 
-router.get('/posts/:title', async (req, res) => {
+router.get('/blog/:title', async (req, res) => {
   try {
     const link = req.params.title;
     const post = await Post.findOne({ link })
@@ -88,9 +90,22 @@ router.get('/posts/:title', async (req, res) => {
         layout: 'error',
       });
     } else {
+    const category = await Category.find().lean();
+    const posts = await Post.find({
+      status: 'public',
+      category: category,
+    })
+      .limit(6)
+      .sort({ createdAt: 'desc' })
+      .populate('image')
+      .populate('category')
+      .lean();
       res.render('main/singlepost', {
         layout: 'main',
         post: post,
+        seo: post.title,
+        categories: category,
+        posts: posts,
       });
     }
   } catch (err) {
@@ -114,9 +129,11 @@ router.get('/category', async (req, res) => {
         layout: 'error',
       });
     } else {
+    const category = await Category.find().lean();
       res.render('main/category', {
         layout: 'main',
         category: posts,
+        categories: category,
       });
     }
   } catch (err) {

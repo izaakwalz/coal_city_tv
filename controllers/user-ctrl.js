@@ -70,7 +70,7 @@ exports.createUser = async (req, res) => {
         };
         await User.create(newUser);
         req.flash('success_msg', 'You are now registered and can login');
-        res.redirect('/app/auth');
+        res.redirect('/cc-login');
       }
     }
   } catch (err) {
