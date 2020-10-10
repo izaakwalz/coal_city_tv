@@ -2,16 +2,32 @@
 <html lang="en">
 
 <head>
+    {{!-- Meta Charset --}}
     <meta charset="UTF-8">
+    {{!-- Meta viewport --}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/ico.ico" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/main.css" />
-    <title>CoalCity TV</title>
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" />
+    <link rel="shortcut icon" type="image/ico" href="/img/favicon.ico" />
+    {{!-- title --}}
+    <title>
+        {{#if seo}}
+        {{seo}}
+        {{else}}
+        Coal - City - TV
+        {{/if}}
+    </title>
+    {{!-- Neta desciption --}}
+    <meta name="description"
+        content="Coal City Tv is an awesome place to get latest gist, news, events and culture happning in town and within the east  ">
+    <meta name="keywords" content="tech">
+    <meta name="author" content="zoba">
 </head>
 
 <body class="bg-pink-100">
+    {{> main/navbar}}
     <div class="max-w-screen-lg mx-auto">
-        {{> main/navbar}}
         {{{body}}}
         {{> main/footer}}
     </div>
@@ -42,6 +58,7 @@
         const now = new Date().getFullYear();
         date.innerHTML = now
     </script>
+    <script src="/js/appline.js"></script>
 </body>
 
 </html>
