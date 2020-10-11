@@ -19,9 +19,19 @@
         {{/if}}
     </title>
     {{!-- Neta desciption --}}
+    {{#if desc}}
+    <meta name="description" content="{{desc}}">
+    {{else}}
     <meta name="description"
-        content="Coal City Tv is an awesome place to get latest gist, news, events and culture happning in town and within the east  ">
-    <meta name="keywords" content="tech">
+        content="Coal City Tv is an awesome place to get latest gist, news, events and culture happning in town and within the east">
+    {{/if}}
+
+    {{#if keywords}}
+    <meta name="keywords" content="{{keywords}}">
+    {{else}}
+    <meta name="keywords"
+        content="Blog, Enugu, Gist, CoalCity, coal, city, nigeria, news, updates, school money, how to, read, earn, write, buy, social,coalcitytv, Coal City, Tv, CoalCityTv, Zoba, Zoba De Greate nija, Nija, World, world, Bussines, music, videos, movie">
+    {{/if}}
     <meta name="author" content="zoba">
 </head>
 

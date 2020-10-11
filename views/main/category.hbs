@@ -1,18 +1,19 @@
+<style>
+    .w-70 {
+        width: 20rem;
+    }
+</style>
 <section class="blog text-gray-700 body-font">
     <div class="container px-5 py-24 mx-auto">
         {{!-- <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"></h1>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Quote</h1>
+            <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en
+                place
+                un blog personnel.
+                Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes
+                développeurs pour mieux s'en sortir. </p>
         </div> --}}
-        {{!-- 
-            <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Blog</h1>
-                <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                    J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en
-                    place
-                    un blog personnel.
-                    Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes
-                    développeurs pour mieux s'en sortir. </p>
-            </div> --}}
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             {{#each category}}
             <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-md max mx-auto">
@@ -47,7 +48,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <a href="/posts/{{link}}" class="mt-1 text-xs bg-gray-800 p-2 rounded-md text-pink-300">Read
+                            <a href="/blog/{{link}}" class="mt-1 text-xs bg-gray-800 p-2 rounded-md text-pink-300">Read
                                 more</a>
                         </div>
                     </section>

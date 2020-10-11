@@ -54,8 +54,8 @@ exports.getPostForm = async (req, res) => {
 //  @route = /admin/post
 exports.addPost = async (req, res) => {
   try {
-    const { title, content, image, status, category, trending } = req.body;
-    if (!title || !content || !image || !status || !trending || !category) {
+    const { title, content, image, status, category, trending, meta, keywords } = req.body;
+    if (!title || !content || !image || !status || !trending || !category || !meta || !keywords) {
       req.flash('warning_msg', 'WARNING: one or more field is empty.');
       res.redirect('/admin/posts/add');
     } else {
@@ -79,6 +79,8 @@ exports.addPost = async (req, res) => {
           status,
           trending,
           category,
+          meta,
+          keywords,
           allowComments: comments,
         });
         res.redirect('/admin/posts');
@@ -126,8 +128,8 @@ exports.editPost = async (req, res) => {
 exports.updatePost = async (req, res) => {
   try {
     let post = await Post.findById(req.params.id).lean();
-    const { title, content, image, status, category, trending } = req.body;
-    if (!title || !content || !image || !status || !trending || !category) {
+    const { title, content, image, status, category, trending, meta, keywords } = req.body;
+    if (!title || !content || !image || !status || !trending || !category || !meta || !keywords) {
       req.flash('warning_msg', 'WARNING: one or more field is empty.');
       res.redirect('/admin/posts/add');
     } else {
@@ -152,6 +154,8 @@ exports.updatePost = async (req, res) => {
             status,
             trending,
             category,
+            meta,
+            keywords,
             allowComments: comments,
           },
           {

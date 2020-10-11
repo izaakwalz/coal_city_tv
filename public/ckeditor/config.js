@@ -9,21 +9,34 @@ CKEDITOR.editorConfig = function( config ) {
 	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
-	config.toolbarGroups = [
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'links' },
-		{ name: 'insert' },
-		{ name: 'forms' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'others' },
+	// config.toolbarGroups = [
+	// 	{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+	// 	{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
+	// 	{ name: 'links' },
+	// 	{ name: 'insert' },
+	// 	{ name: 'forms' },
+	// 	{ name: 'tools' },
+	// 	{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+	// 	{ name: 'others' },
+	// 	'/',
+	// 	{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+	// 	{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+	// 	{ name: 'styles' },
+	// 	{ name: 'colors' },
+	// 	{ name: 'about' }
+	// ];
+	config.uiColor = '#fed7e2';
+	config.toolbar = [
+		{ name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+		{ name: 'editing', items: ['Scayt'] },
+		{ name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+		{ name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'SpecialChar'] },
+		{ name: 'tools', items: ['Maximize'] },
 		'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'about' }
+		{ name: 'basicstyles', items: ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat'] },
+		{ name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'] },
+		{ name: 'styles', items: ['Styles', 'Format'] },
+
 	];
 
 	// Remove some buttons provided by the standard plugins, which are

@@ -96,7 +96,7 @@ router.get('/blog/:title', async (req, res) => {
       category: category,
     })
       .limit(6)
-      .sort({ createdAt: 'desc' })
+      .sort({ createdAt: 'desc'})
       .populate('image')
       .populate('category')
       .lean();
@@ -104,6 +104,8 @@ router.get('/blog/:title', async (req, res) => {
         layout: 'main',
         post: post,
         seo: post.title,
+        desc: post.meta,
+        keywords: post.keywords,
         categories: category,
         posts: posts,
       });

@@ -48,6 +48,12 @@ const PostSchema = new mongoose.Schema(
         ref: 'comment',
       },
     ],
+    meta: {
+      type: String,
+    },
+    keywords: {
+      type: String,
+    },
     allowComments: {
       type: Boolean,
       default: false,

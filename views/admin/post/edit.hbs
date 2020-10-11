@@ -147,7 +147,26 @@
                                 <span class="ml-2 text-gray-700">allow comments?</span>
                             </label>
                         </div>
-
+                        <div class="personal w-full border-t border-gray-400 pt-4">
+                            <h2 class="text-2xl text-gray-900">SEO - meta & keywords (helps in ranking of the post)</h2>
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label
+                                    class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>keywords
+                                </label>
+                                <input
+                                    class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
+                                    type='text' id="keywords" name="keywords"
+                                    placeholder="(e.g) phones, samsung, iphone, apple, oppo" value="{{post.keywords}}">
+                            </div>
+                            <div class='w-full md:w-full px-3 mb-6'>
+                                <label
+                                    class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Meta</label>
+                                <textarea
+                                    class='bg-gray-100 rounded-md  leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white'
+                                    id="meta" name="meta"
+                                    placeholder="a short description about this post,  30 to 60 words">{{post.meta}}</textarea>
+                            </div>
+                        </div>
                         <div class="flex justify-end">
                             <button
                                 class="appearance-none bg-orange-300 text-gray-900 px-12 py-2 shadow-sm border border-gray-400 rounded-md mr-3"
