@@ -6,14 +6,21 @@
     }
 </style>
 
-<header class="flex items-center justify-between">
-    <nav class="container mx-auto px-6">
+<header class="flex items-center bg-pink-300 justify-between shadow-md">
+    <nav class="container mx-auto px-3">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center">
             <div class="flex justify-between items-center">
-                <div class="items-center">
+                <div class="items-center p-0">
                     <a href="/">
-                        <img class=" h-20 w-40 m-0 p-0 mb-0" src="/img/logo.png" alt="logo" srcset="">
+                        <img class=" h-20 w-40 m-0 p-0 mb-0" src="/img/logo2.png" alt="logo">
                     </a>
+
+                </div>
+                <div class="text-center p-0 ml-0">
+                    <h1
+                        class="text-gray-800 text-4xl capitalize font-serif focus:outline-none lg:ml-64 mt-2 mb-2 leading-10">
+                        CoalCity Tv
+                    </h1>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -31,17 +38,17 @@
             </div>
 
             <div id="sideMenuHideOnMobile"
-                class="lg:bg-pink-100 bg-gray-800 font-semibold z-10 rounded-bl-md flex absolute top-0 right-0 transition-all duration-500 transform translate-x-0
+                class="lg:bg-pink-300 bg-gray-800 font-semibold z-10 rounded-bl-md flex absolute top-0 right-0 transition-all duration-500 transform translate-x-0
  w-1/2 md:w-auto px-3 md:px-0 flex-col md:flex-row -translate-y-full md:translate-y-0 md:mt-1 md:items-center md:mx-1 mr-8 md:uppercase">
                 <a href="/"
-                    class="mx-0 sm:mx-2 my-2 lg:text-gray-700 lg:hover:text-gray-800 text-pink-200 hover:text-pink-300 border-pink-100  border-b transition-all duration-500 py-1 sm:p-0">Home</a>
+                    class="mx-0 sm:mx-2 my-2 lg:text-gray-700 lg:hover:text-gray-800 text-pink-200 hover:text-pink-300 border-pink-300  border-b transition-all duration-500 py-1 sm:p-0">Home</a>
                 <a href="/blog"
-                    class="mx-0 sm:mx-2 my-2 lg:text-gray-700 lg:hover:text-gray-800 text-pink-200 hover:text-pink-300 border-pink-100  border-b transition-all duration-500 py-1 sm:p-0">Blog</a>
+                    class="mx-0 sm:mx-2 my-2 lg:text-gray-700 lg:hover:text-gray-800 text-pink-200 hover:text-pink-300 border-pink-300  border-b transition-all duration-500 py-1 sm:p-0">Blog</a>
                 <a href="/blog"
                     class="mx-0 sm:mx-2 my-2 lg:text-gray-700 lg:hover:text-gray-800 text-pink-200 hover:text-pink-300  transition-all duration-500 sm:p-0">Vlogs</a>
             </div>
         </div>
-        </div>
+
 
         <div class="mt-1 py-1 -mx-3 overflow-y-auto whitespace-no-wrap scroll-hidden">
             {{#each categories}}

@@ -4,7 +4,8 @@
         <!-- main post -->
         {{#if post}}
         <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
-            <img src="{{post.image.photo}}" alt="{{image.name}}" class="rounded-md object-cover w-full h-64" />
+            <img src="{{post.image.photo}}" alt="{{image.name}}" title="{{post.title}}" alt="{{post.title}}"
+                class="rounded-md object-cover w-full h-64" />
             <span class="text-gray-700 text-sm hidden md:block mt-4"> {{post.category.name}} </span>
             <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
                 {{post.title}}
@@ -25,7 +26,7 @@
             {{#each posts}}
             <div class=" mx-5 w-ful lg:flex">
                 <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                    style="background-image: url('{{image.photo}}')" title="Woman holding a mug">
+                    style="background-image: url('{{image.photo}}')" title="{{title}}">
                 </div>
                 <div
                     class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
@@ -54,7 +55,8 @@
                 style="height: 24em;" href="/{{trend.title}}">
                 <div class="absolute left-0 bottom-0 w-full h-full z-10"
                     style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-                <img src="{{trend.image.photo}}" class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover" />
+                <img src="{{trend.image.photo}}" alt="{{trend.title}}" title="{{trend.title}}"
+                    class="absolute left-0 top-0 w-full h-full rounded z-0 object-cover" />
                 <div class="p-4 absolute bottom-0 left-0 z-20">
                     <span
                         class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">{{trend.category.name}}</span>
@@ -137,7 +139,7 @@
                                 Fajrian Aidil Pratama
                             </a> --}}
                                 <span class="mx-1 text-xs text-gray-600">
-                                    {{formatDate createdAt 'DD MMM YYYY'}}
+                                    <h6>{{formatDate createdAt 'DD MMM YYYY'}}</h6>
                                 </span>
                             </div>
                         </div>
@@ -181,11 +183,6 @@
             View all
         </a>
     </div>
-    {{!-- <style>
-        .w-70 {
-            width: 20rem;
-        }
-    </style> --}}
     <section class="blog text-gray-700 body-font">
         <div class="container px-5 py-24 mx-auto">
             {{!-- 
