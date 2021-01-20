@@ -15,9 +15,12 @@ module.exports = {
     return str;
   },
   stripTags: function (input) {
-    if (input) {
-      return input.replace(/<(?:.|\n)*?>/gm, '');
-    }
+    if (input === null || input === '') return false;
+    else input = input.toString();
+    return input.replace(/<[^>]*>/g, '');
+    // if (input) {
+    //   return input.replace(/<(?:.|\n)*?>/gm, '');
+    // }
   },
   trim: function (input) {
     return input.replace(/s/g, '-');
